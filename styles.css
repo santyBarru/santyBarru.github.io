@@ -129,9 +129,10 @@ fill:#f4f7fb;
 /* SECCIONES */
 
 .seccion{
-padding:90px 20px;
+padding:110px 28px;
 max-width:1100px;
-margin:auto;
+margin:80px auto;
+position:relative;
 }
 
 .seccion h2{
@@ -143,7 +144,6 @@ font-size:1.9rem;
 letter-spacing:.5px;
 }
 
-
 .grad{
 background:
 linear-gradient(180deg,#e6edf6,#f7faff,#ffffff);
@@ -153,13 +153,12 @@ position:relative;
 overflow:hidden;
 }
 
-
 .grad::before{
 content:"";
 position:absolute;
 width:380px;
 height:380px;
-background:radial-gradient(circle, rgba(48, 66, 87, 0.12), transparent 70%);
+background:radial-gradient(circle, rgba(48,66,87,0.12), transparent 70%);
 top:-120px;
 right:-120px;
 z-index:0;
@@ -169,7 +168,6 @@ z-index:0;
 position:relative;
 z-index:1;
 }
-
 
 .blanco{
 background:white;
@@ -193,33 +191,23 @@ gap:26px;
 margin-top:30px;
 }
 
-
 /* CARDS */
 
 .card{
 padding:32px;
 border-radius:18px;
-
 background:linear-gradient(
 180deg,
 rgba(255,255,255,0.65),
 rgba(255,255,255,0.35)
 );
-
 backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-
 border:1px solid rgba(255,255,255,0.6);
-
-box-shadow:
-0 12px 30px rgba(31,42,54,0.10);
-
+box-shadow:0 12px 30px rgba(31,42,54,0.10);
 transition:.35s;
 position:relative;
 overflow:hidden;
 }
-
-/* brillo suave interno */
 
 .card::after{
 content:"";
@@ -236,41 +224,115 @@ opacity:.35;
 
 .card:hover{
 transform:translateY(-8px);
-box-shadow:
-0 22px 50px rgba(31,42,54,0.18);
+box-shadow:0 22px 50px rgba(31,42,54,0.18);
 }
-
-
 
 .mini-card{
 padding:20px;
 border-radius:16px;
 text-align:center;
 font-weight:500;
-
 background:linear-gradient(
 180deg,
 rgba(240,245,252,0.85),
 rgba(240,245,252,0.55)
 );
-
 backdrop-filter: blur(10px);
-
 border:1px solid rgba(255,255,255,0.7);
-
-box-shadow:
-0 8px 22px rgba(31,42,54,0.08);
-
+box-shadow:0 8px 22px rgba(31,42,54,0.08);
 transition:.3s;
 }
 
 .mini-card:hover{
 transform:translateY(-4px);
-box-shadow:
-0 16px 34px rgba(31,42,54,0.14);
+box-shadow:0 16px 34px rgba(31,42,54,0.14);
 }
 
+/* SOBRE + GALERÍA */
 
+.sobre-layout{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:40px;
+align-items:center;
+}
+
+.sobre-galeria{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+
+.foto-main{
+grid-column:span 2;
+width:100%;
+border-radius:18px;
+box-shadow:0 18px 40px rgba(0,0,0,.15);
+background:white;
+}
+
+.foto-sec{
+width:100%;
+border-radius:14px;
+box-shadow:0 10px 26px rgba(0,0,0,.12);
+background:white;
+}
+
+/* SERVICIOS NUEVO DISEÑO */
+
+.servicios-pro{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:26px;
+}
+
+.serv-card{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 28px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.serv-card.big{
+grid-row:span 2;
+background:linear-gradient(135deg,#243447,#2c3e50);
+color:white;
+}
+
+.serv-card.highlight{
+background:linear-gradient(135deg,#d4af37,#f2d67b);
+color:#1f2a36;
+font-weight:600;
+}
+
+.serv-card:hover{
+transform:translateY(-6px);
+}
+
+/* PROCESO */
+
+.pasos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:24px;
+}
+
+.paso{
+background:white;
+padding:24px;
+border-radius:16px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,.07);
+font-weight:600;
+}
+
+.paso span{
+display:block;
+font-size:1.6rem;
+color:#d4af37;
+margin-bottom:8px;
+}
 
 /* RESEÑAS */
 
@@ -350,9 +412,14 @@ transition:.25s;
 transform:scale(1.1);
 }
 
-.seccion{
-padding:110px 28px;
-max-width:1100px;
-margin:80px auto;
-position:relative;
+/* RESPONSIVE */
+
+@media(max-width:900px){
+.sobre-layout{
+grid-template-columns:1fr;
+}
+
+.servicios-pro{
+grid-template-columns:1fr;
+}
 }
